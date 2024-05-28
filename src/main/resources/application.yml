@@ -1,0 +1,23 @@
+spring.profiles.active: localhost
+logging.level.root: info
+
+spring.cloud.stream.kafka.streams.binder:
+  brokers: localhost:9092
+  configuration:
+    auto.offset.reset: latest
+    replication.factor: 3
+  functions:
+    stream1.applicationId: test-app-stream-1
+    stream2.applicationId: test-app-stream-2
+
+spring.cloud.function.definition: stream1;stream2
+
+spring.cloud.stream.bindings:
+  stream1-in-0:
+    destination: inbound-data-1
+    content-type: application/json
+    consumer.header-mode: none
+  stream2-in-0:
+    destination: inbound-data-2
+    content-type: application/json
+    consumer.header-mode: none
