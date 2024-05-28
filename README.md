@@ -1,1 +1,1 @@
-# multiple-kstreams-test
+# multiple-kstreams-demo
